@@ -4,8 +4,7 @@ import ReactMarkdown from "react-markdown";
 
 export default function Services() {
   const [formData, setFormData] = useState({
-    type: "Mobil", // Default
-    // Field tahun, km, issue sudah DIHAPUS
+    type: "Mobil", 
   });
 
   const [loading, setLoading] = useState(false);
@@ -58,8 +57,8 @@ export default function Services() {
                 onChange={handleChange}
                 className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-gray-50 font-bold"
               >
-                <option value="Mobil">Mobil 🚗</option>
-                <option value="Motor">Motor 🏍️</option>
+                <option value="Mobil">Mobil</option>
+                <option value="Motor">Motor</option>
               </select>
             </div>
 
@@ -129,7 +128,7 @@ export default function Services() {
               )}
 
               {/* ==========================================  */}
-              {/* PERTANYAAN UNTUK MOBIL 🚗                   */}
+              {/* PERTANYAAN UNTUK MOBIL                      */}
               {/* ==========================================  */}
               {formData.type === "Mobil" && (
                 <div className="grid gap-4">

@@ -1,13 +1,4 @@
-// ============================================================================
-// 1. BASIS PENGETAHUAN (DATABASE ATURAN LENGKAP - TANPA TEXT INPUT)
-// ============================================================================
-
 export const carKnowledgeBase = [
-  // ==========================================================================
-  // KATEGORI: MOBIL 🚗
-  // ==========================================================================
-  
-  // --- KELISTRIKAN & STARTER ---
   {
     id: "M01",
     name: "Aki (Battery) Soak / Rusak",
@@ -28,14 +19,13 @@ export const carKnowledgeBase = [
     type: "Mobil",
     symptoms: [
       "mobil_sulit_hidup",
-      "mobil_bunyi_klik" // Bunyi 'tek' sekali keras, lampu terang
+      "mobil_bunyi_klik" 
     ],
     description: "Aki normal, tapi starter hanya bunyi 'tek' atau hening. Biasanya carbon brush starter habis.",
     solution: "1. Cek kabel dinamo starter.\n2. Service dinamo starter (ganti carbon brush).",
     cost: "Rp 300.000 - Rp 800.000"
   },
 
-  // --- MESIN & PERFORMA ---
   {
     id: "M03",
     name: "Overheat (Sistem Pendingin Gagal)",
@@ -54,7 +44,7 @@ export const carKnowledgeBase = [
     name: "Busi / Koil Mati (Misfire)",
     type: "Mobil",
     symptoms: [
-      "mobil_getar", // Pincang
+      "mobil_getar", 
       "mobil_brebet",
       "mobil_boros_bbm",
       "mobil_indikator_engine"
@@ -63,8 +53,6 @@ export const carKnowledgeBase = [
     solution: "1. Cek api di setiap koil.\n2. Ganti busi yang mati.\n3. Ganti koil yang lemah.",
     cost: "Rp 100.000 (Busi) - Rp 500.000 (Koil)"
   },
-  
-  // --- KAKI-KAKI & KENYAMANAN ---
   {
     id: "M05",
     name: "Kaki-kaki Rusak (Tie Rod / Shockbreaker)",
@@ -91,13 +79,12 @@ export const carKnowledgeBase = [
     cost: "Rp 300.000 (Isi Freon) - Rp 3.000.000 (Kompresor)"
   },
 
-  // --- PENGEREMAN ---
   {
     id: "M07",
     name: "Kampas Rem Habis",
     type: "Mobil",
     symptoms: [
-      "mobil_rem_bunyi", // Srek-srek / Decit
+      "mobil_rem_bunyi", 
       "mobil_rem_getar"
     ],
     description: "Kampas rem tipis bergesekan dengan piringan cakram.",
@@ -105,11 +92,6 @@ export const carKnowledgeBase = [
     cost: "Rp 300.000 - Rp 1.200.000"
   },
 
-  // ==========================================================================
-  // KATEGORI: MOTOR 🏍️
-  // ==========================================================================
-
-  // --- MESIN & PERFORMA ---
   {
     id: "R01",
     name: "Busi / Pengapian Bermasalah",
@@ -129,7 +111,7 @@ export const carKnowledgeBase = [
     type: "Motor",
     symptoms: [
       "motor_brebet",
-      "motor_gas_kosong", // Di gas malah mau mati
+      "motor_gas_kosong", 
       "motor_indikator_engine"
     ],
     description: "Suplai bensin tersumbat (Filter kotor) atau injektor mampet.",
@@ -149,14 +131,13 @@ export const carKnowledgeBase = [
     cost: "Rp 500.000 - Rp 1.500.000"
   },
 
-  // --- TRANSMISI (CVT / RANTAI) ---
   {
     id: "R04",
     name: "CVT Kotor / Roller Peyang (Matic)",
     type: "Motor",
     symptoms: [
       "motor_cvt_bunyi",
-      "motor_getar_awal", // Gredek
+      "motor_getar_awal", 
       "motor_tenaga_kurang"
     ],
     description: "Kotoran debu di CVT atau roller sudah tidak bulat.",
@@ -175,7 +156,6 @@ export const carKnowledgeBase = [
     cost: "Rp 150.000 - Rp 500.000"
   },
 
-  // --- KELISTRIKAN ---
   {
     id: "R06",
     name: "Kiprok / Aki Rusak",
@@ -189,10 +169,6 @@ export const carKnowledgeBase = [
     cost: "Rp 150.000 - Rp 400.000"
   }
 ];
-
-// ============================================================================
-// 2. MESIN PELACAK (LOGIKA TETAP SAMA)
-// ============================================================================
 
 export const runExpertSystem = (userData) => {
   let scores = [];
@@ -224,12 +200,7 @@ export const runExpertSystem = (userData) => {
   return generateReport(scores, userData);
 };
 
-// ============================================================================
-// 3. GENERATOR LAPORAN (TANPA DATA TAHUN/KM)
-// ============================================================================
-
 const generateReport = (scores, userData) => {
-  // Header sederhana karena data tahun/km dihapus
   const vehicleInfo = `**Kendaraan:** ${userData.type}`;
 
   if (scores.length === 0) {
