@@ -12,8 +12,8 @@ app.use(cors());
 // Konek ke Database
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root', // sesuaikan user mysql mu
-    password: '', // sesuaikan password mysql mu
+    user: 'root', 
+    password: '', 
     database: 'montir_db'
 });
 
@@ -32,7 +32,6 @@ app.post('/register', (req, res) => {
 // API Login
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-    
     const sql = "SELECT * FROM users WHERE username = ?";
     db.query(sql, [username], (err, data) => {
         if (err) return res.status(500).json({ error: "Error server" });
@@ -50,16 +49,11 @@ app.post('/login', (req, res) => {
 
 // API Get Knowledge Base
 app.get('/api/diseases', (req, res) => {
-    // Ambil semua data dari tabel knowledge_base
     const sql = "SELECT * FROM knowledge_base";
     db.query(sql, (err, results) => {
         if (err) return res.status(500).json({ error: err.message });
-        
-        // MySQL mungkin balikin kolom JSON sebagai string atau object tergantung versi/library.
-        // Kita pastiin symptoms jadi array beneran kalo masih string.
         const formattedData = results.map(item => ({
             ...item,
-            // Cek kalo symptoms tipe datanya string, kita parse jadi JSON
             symptoms: typeof item.symptoms === 'string' ? JSON.parse(item.symptoms) : item.symptoms
         }));
 
@@ -68,5 +62,5 @@ app.get('/api/diseases', (req, res) => {
 });
 
 app.listen(3001, () => {
-    console.log("Server jalan di port 3001 nih bro...");
+    console.log("Server berhasil dijalankan di http://localhost:3001");
 });

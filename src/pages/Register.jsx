@@ -7,7 +7,6 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Bedanya disini: Nembak ke /register
     const response = await fetch('http://localhost:3001/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -17,7 +16,7 @@ export default function Register() {
     const data = await response.json();
     if (response.ok) {
       alert("Register Berhasil! Silakan Login.");
-      navigate('/'); // Balik ke halaman login
+      navigate('/'); 
     } else {
       alert(data.error || "Gagal register bro");
     }

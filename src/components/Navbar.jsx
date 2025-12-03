@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
-  const location = useLocation(); 
+  const location = useLocation();
   const hideNavbarPaths = ["/", "/login", "/register"];
   if (hideNavbarPaths.includes(location.pathname)) {
     return null;

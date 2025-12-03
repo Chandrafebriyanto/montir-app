@@ -1,25 +1,18 @@
-// Kita modifikasi fungsi ini biar nerima 'knowledgeBaseData' sebagai parameter ke-2
 export const runExpertSystem = (userData, knowledgeBaseData) => {
   let scores = [];
-  
-  // Filter penyakit sesuai tipe kendaraan (Mobil/Motor)
   const relevantDiseases = knowledgeBaseData.filter(item => item.type === userData.type);
 
   relevantDiseases.forEach(disease => {
     let matchCount = 0;
     let detectedSymptoms = [];
 
-    // Cek gejala
     disease.symptoms.forEach(symptomCode => {
-      // User pilih "Iya" gak?
       if (userData[symptomCode] === "Iya") {
         matchCount++;
-        // Bersihin nama gejala buat laporan (misal: "motor_brebet" jadi "Brebet")
         detectedSymptoms.push(symptomCode.replace(/_/g, " ").replace(/mobil |motor /g, "")); 
       }
     });
 
-    // Hitung persentase kecocokan
     const probability = matchCount > 0 ? (matchCount / disease.symptoms.length) * 100 : 0;
 
     if (probability > 0) {
@@ -31,7 +24,6 @@ export const runExpertSystem = (userData, knowledgeBaseData) => {
     }
   });
 
-  // Urutkan dari yang paling mungkin (probability tertinggi)
   scores.sort((a, b) => b.probability - a.probability);
   
   return generateReport(scores, userData);

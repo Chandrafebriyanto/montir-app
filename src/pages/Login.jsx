@@ -8,7 +8,6 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Nembak ke API backend yang kita buat tadi
     const response = await fetch("http://localhost:3001/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -18,9 +17,8 @@ export default function Login() {
     const data = await response.json();
     if (response.ok) {
       alert("Login Berhasil! Welcome " + data.username);
-      // Simpan token biar browser inget kalo udah login
       localStorage.setItem("token", data.token);
-      navigate("/home"); // Balik ke home
+      navigate("/home");
     } else {
       alert(data.error);
     }
