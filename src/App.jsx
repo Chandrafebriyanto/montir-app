@@ -5,6 +5,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -13,11 +14,12 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </main>
         <footer className="bg-gray-800 text-white text-center py-4 mt-10">

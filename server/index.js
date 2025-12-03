@@ -48,6 +48,25 @@ app.post('/login', (req, res) => {
     });
 });
 
+// API Get Knowledge Base
+app.get('/api/diseases', (req, res) => {
+    // Ambil semua data dari tabel knowledge_base
+    const sql = "SELECT * FROM knowledge_base";
+    db.query(sql, (err, results) => {
+        if (err) return res.status(500).json({ error: err.message });
+        
+        // MySQL mungkin balikin kolom JSON sebagai string atau object tergantung versi/library.
+        // Kita pastiin symptoms jadi array beneran kalo masih string.
+        const formattedData = results.map(item => ({
+            ...item,
+            // Cek kalo symptoms tipe datanya string, kita parse jadi JSON
+            symptoms: typeof item.symptoms === 'string' ? JSON.parse(item.symptoms) : item.symptoms
+        }));
+
+        res.json(formattedData);
+    });
+});
+
 app.listen(3001, () => {
     console.log("Server jalan di port 3001 nih bro...");
 });
