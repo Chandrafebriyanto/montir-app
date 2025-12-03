@@ -23,7 +23,7 @@ function App() {
           </Routes>
         </main>
         <footer className="bg-gray-800 text-white text-center py-4 mt-10">
-          © 2025 MontirAI - 100 Days of Coding Challenge
+          © 2025 MontirAI - Kelompok 5 artificial intelligence. All rights reserved.
         </footer>
       </div>
     </Router>

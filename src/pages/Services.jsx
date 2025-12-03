@@ -253,7 +253,7 @@ export default function Services() {
                         : "bg-blue-600 hover:bg-blue-700 hover:scale-[1.02]"
                     }`}
             >
-              {loading ? "Sedang Menganalisa..." : "🔍 ANALISA SEKARANG"}
+              {loading ? "Sedang Menganalisa..." : "ANALISA SEKARANG"}
             </button>
           </form>
         </div>
