@@ -16,7 +16,7 @@ export default function Services() {
     fetch("http://localhost:3001/api/diseases")
       .then((res) => res.json())
       .then((data) => {
-        setKnowledgeBase(data); // Simpan ke state
+        setKnowledgeBase(data);
         console.log("Data penyakit loaded:", data.length);
       })
       .catch((err) => console.error("Gagal ambil data:", err));
